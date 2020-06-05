@@ -9,6 +9,25 @@ a, .btn-link {
 }
 
 
+.hero-image {
+    background-image: url('img/background.png');
+    height: 500px; /* You must set a specified height */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+}
+
+.bg {
+    /* The image used */
+    background-image: url('img/background.png');
+    /* Full height */
+    height: 100%;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 
 app {
     position: relative;
@@ -177,3 +196,4 @@ app {
         display: block;
     }
 }
+

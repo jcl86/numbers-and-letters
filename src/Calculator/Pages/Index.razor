@@ -1,40 +1,43 @@
 ﻿@page "/"
 @inject IGamePreparer gamePreparer;
 
-<div class="container">
-
-    <div class="d-flex align-items-end justify-content-between">
-
-        <ObjetivePanel Objective="game.Objetive"></ObjetivePanel>
 
 
-        @if (game.IsStarted)
-        {
-            <div class="bg-light d-flex justify-content-start">
-                <button @onclick="() => game.RestartGame()" class="btn btn-outline-secondary" >
-                    <span class="mr-2"><i class="fas fa-redo-alt"></i></span>Begin again
-                </button>
-            </div>
-        }
+    <div class="container" >
 
-        <CurrentCalculation Calculation="game.CurrentCalculation"></CurrentCalculation>
+        <div class="d-flex align-items-end justify-content-between">
 
+            <ObjetivePanel Objective="game.Objetive"></ObjetivePanel>
+
+            @if (game.IsStarted)
+            {
+                <div class="bg-light d-flex justify-content-start">
+                    <button @onclick="() => game.RestartGame()" class="btn btn-outline-secondary">
+                        <span class="mr-2"><i class="fas fa-redo-alt"></i></span>Begin again
+                    </button>
+                </div>
+            }
+
+            <CurrentCalculation Calculation="game.CurrentCalculation"></CurrentCalculation>
+
+        </div>
+
+        <br />
+
+        <NumbersGrid Numbers="game.Numbers" OnNumberClicked="NumberClicked"></NumbersGrid>
+
+        <br />
+
+        <OperationsGrid OperationSelected="OnOperationClicked"></OperationsGrid>
+
+        <ResultsGrid OnNumberClicked="CalculatedNumberClicked" Numbers="game.CalculatedNumbers"></ResultsGrid>
+
+        <AchievementMessage Message="game.Message"></AchievementMessage>
+
+        <CalculationList List="game.CalculationList"></CalculationList>
     </div>
 
-    <br />
 
-    <NumbersGrid Numbers="game.Numbers" OnNumberClicked="NumberClicked"></NumbersGrid>
-
-    <br />
-
-    <OperationsGrid OperationSelected="OnOperationClicked"></OperationsGrid>
-
-    <ResultsGrid OnNumberClicked="CalculatedNumberClicked" Numbers="game.CalculatedNumbers"></ResultsGrid>
-
-    <AchievementMessage Message="game.Message"></AchievementMessage>
-
-    <CalculationList List="game.CalculationList"></CalculationList>
-</div>
 @code
 {
     private Game game;
