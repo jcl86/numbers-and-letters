@@ -1,0 +1,22 @@
+﻿
+@if (Message.Show())
+{
+    <div class="alert alert-success mt-4" role="alert">
+        @Message.Title
+
+        @if (Message.YouHaveWon)
+        {
+            <strong>You obtained the exact number!</strong>
+        }
+        else
+        {
+            <span>You obtained <span class="badge badge-secondary">@Message.YourNumber</span></span>
+        }
+    </div>
+}
+
+
+@code {
+    [Parameter]
+    public Message Message { get; set; }
+}

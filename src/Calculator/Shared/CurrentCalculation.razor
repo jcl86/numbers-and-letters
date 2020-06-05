@@ -1,0 +1,24 @@
+﻿<div class="d-flex align-items-center flex-column mt-2">
+    @if (!Calculation.IsEmpty)
+    {
+        <span>Current calculation</span>
+        <span class="display-4 px-4 py-2 bg-ligth text-info d-flex align-items-center justify-content-between bg-light">
+            @Calculation.ToString()
+            <button @onclick="() => Calculation.Restart()" class="btn btn-lg bt-light text-danger ml-4">
+                <i class="fas fa-trash-alt"></i>
+            </button>
+        </span>
+
+        @if (Calculation.IsFilled && !Calculation.CanBeOperated())
+        {
+            <div class="alert alert-danger p-2" role="alert">
+                @Calculation.ErrorText
+            </div>
+        }
+    }
+</div>
+
+@code {
+    [Parameter]
+    public Calculation Calculation { get; set; }
+}

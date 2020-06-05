@@ -1,0 +1,16 @@
+﻿<div class="row">
+    @foreach (var number in Numbers)
+    {
+    <div class="col-4 col-md-2">
+        <SelectableNumber Number="number" OnNumberClicked="() => OnNumberClicked.InvokeAsync(number)"></SelectableNumber>
+    </div>
+    }
+</div>
+
+@code {
+    [Parameter]
+    public List<Number> Numbers { get; set; }
+
+    [Parameter]
+    public EventCallback<Number> OnNumberClicked { get; set; }
+}

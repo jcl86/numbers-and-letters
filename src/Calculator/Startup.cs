@@ -29,6 +29,8 @@ namespace Calculator
             services.AddRazorPages();
             services.AddServerSideBlazor();
             services.AddSingleton<WeatherForecastService>();
+            services.AddSingleton<Random>();
+            services.AddSingleton<IGamePreparer, GamePreparer>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,0 +1,25 @@
+﻿
+<div class="card border-0">
+    <div class="card-body">
+        <h5 class="card-subtitle my-2 text-muted">Calculated intermediate results</h5>
+
+        <div class="d-flex justify-content-start">
+
+            @foreach (var number in Numbers)
+            {
+                <CalculatedNumber Number="number" OnNumberClicked="() => OnNumberClicked.InvokeAsync(number)"></CalculatedNumber>
+            }
+
+        </div>
+
+    </div>
+</div>
+@code {
+    [Parameter]
+    public List<Calculator.CalculatedNumber> Numbers { get; set; }
+
+
+    [Parameter]
+    public EventCallback<Calculator.CalculatedNumber> OnNumberClicked { get; set; }
+
+}

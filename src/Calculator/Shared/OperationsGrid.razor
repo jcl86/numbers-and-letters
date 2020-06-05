@@ -1,0 +1,30 @@
+﻿
+<div class="row">
+    <div class="col-3">
+        <button @onclick="() => OperationSelected.InvokeAsync(Operator.Add)" class="btn btn-secondary px-4 py-2 text-white mr-4">
+            <span class="display-4"><i class="fas fa-plus"></i></span>
+        </button>
+    </div>
+
+    <div class="col-3">
+        <button @onclick="() => OperationSelected.InvokeAsync(Operator.Substract)" class="btn btn-secondary px-4 py-2 text-white mr-4">
+            <span class="display-4"><i class="fas fa-minus"></i></span>
+        </button>
+    </div>
+    <div class="col-3">
+        <button @onclick="() => OperationSelected.InvokeAsync(Operator.Multiply)" class="btn btn-secondary px-4 py-2 text-white mr-4">
+            <span class="display-4"><i class="fas fa-times"></i></span>
+        </button>
+    </div>
+    <div class="col-3">
+        <button @onclick="() => OperationSelected.InvokeAsync(Operator.Divide)" class="btn btn-secondary px-4 py-2 text-white">
+            <span class="display-4"><i class="fas fa-divide"></i></span>
+        </button>
+    </div>
+</div>
+
+@code {
+
+    [Parameter]
+    public EventCallback<Operator> OperationSelected { get; set; }
+}

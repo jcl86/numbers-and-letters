@@ -1,0 +1,16 @@
+﻿<button @onclick="OnButtonClicked" style="width:7rem;" class="btn btn-info text-white my-4" disabled="@Number.IsDisabled">
+    <span class="display-4">@Number</span>  
+</button>
+
+@code {
+    [Parameter]
+    public Number Number { get; set; }
+
+    [Parameter]
+    public EventCallback<Number> OnNumberClicked { get; set; }
+
+    private async Task OnButtonClicked()
+    {
+        await OnNumberClicked.InvokeAsync(Number);
+    }
+}

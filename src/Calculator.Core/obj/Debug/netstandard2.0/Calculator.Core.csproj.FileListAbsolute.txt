@@ -1,0 +1,9 @@
+F:\DESARROLLO\Repos\calculator\src\Calculator.Core\bin\Debug\netstandard2.0\Calculator.Core.deps.json
+F:\DESARROLLO\Repos\calculator\src\Calculator.Core\bin\Debug\netstandard2.0\Calculator.Core.dll
+F:\DESARROLLO\Repos\calculator\src\Calculator.Core\bin\Debug\netstandard2.0\Calculator.Core.pdb
+F:\DESARROLLO\Repos\calculator\src\Calculator.Core\obj\Debug\netstandard2.0\Calculator.Core.csprojAssemblyReference.cache
+F:\DESARROLLO\Repos\calculator\src\Calculator.Core\obj\Debug\netstandard2.0\Calculator.Core.csproj.CoreCompileInputs.cache
+F:\DESARROLLO\Repos\calculator\src\Calculator.Core\obj\Debug\netstandard2.0\Calculator.Core.AssemblyInfoInputs.cache
+F:\DESARROLLO\Repos\calculator\src\Calculator.Core\obj\Debug\netstandard2.0\Calculator.Core.AssemblyInfo.cs
+F:\DESARROLLO\Repos\calculator\src\Calculator.Core\obj\Debug\netstandard2.0\Calculator.Core.dll
+F:\DESARROLLO\Repos\calculator\src\Calculator.Core\obj\Debug\netstandard2.0\Calculator.Core.pdb

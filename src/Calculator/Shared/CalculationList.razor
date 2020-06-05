@@ -1,0 +1,12 @@
+﻿<ul class="list-group">
+
+    @foreach (var item in List)
+    {
+        <li class="list-group-item border-0"><h5 class="mb-1">@item.ToString() = <strong>@item.Operate()</strong></h5></li>
+    }
+</ul>
+
+@code {
+    [Parameter]
+    public List<Calculation> List { get; set; }
+}

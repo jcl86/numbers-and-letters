@@ -1,0 +1,18 @@
+﻿<button @onclick="OnButtonClicked" style="@Width" class="btn btn-info text-white mr-3">
+    <span class="display-4">@Number</span>  
+</button>
+
+@code {
+    [Parameter]
+    public Calculator.CalculatedNumber Number { get; set; }
+
+    [Parameter]
+    public EventCallback<Calculator.CalculatedNumber> OnNumberClicked { get; set; }
+
+    private async Task OnButtonClicked()
+    {
+        await OnNumberClicked.InvokeAsync(Number);
+    }
+
+    private string Width => $"width:{Number.GetWidthInRems()}rem;";
+}
