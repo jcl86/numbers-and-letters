@@ -23,6 +23,7 @@ namespace Calculator
         {
             this.gamePreparer = gamePreparer;
 
+            Objetive = gamePreparer.CreateObjetive();
             CurrentCalculation = new Calculation();
             CalculationList = new List<Calculation>();
             Numbers = new List<Number>();
@@ -33,7 +34,6 @@ namespace Calculator
 
         public void RestartGame()
         {
-            Objetive = gamePreparer.CreateObjetive();
             Numbers.Clear();
             foreach (var value in gamePreparer.CreateNumbers())
             {
@@ -41,6 +41,8 @@ namespace Calculator
             }
             CalculatedNumbers.Clear();
             Message = new Message(Objetive);
+            CurrentCalculation.Restart();
+            CalculationList.Clear();
         }
 
         public bool IsStarted => CalculationList.Any();
