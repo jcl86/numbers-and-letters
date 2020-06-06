@@ -7,6 +7,7 @@ namespace Calculator
         public Guid Id { get; }
         public int Value { get; }
         public bool IsDisabled { get; private set; }
+        public void Enable() => IsDisabled = false;
         public void Disable() => IsDisabled = true;
 
         public Number(int value)

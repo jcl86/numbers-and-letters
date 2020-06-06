@@ -24,9 +24,9 @@ namespace Calculator
             this.gamePreparer = gamePreparer;
 
             Objetive = gamePreparer.CreateObjetive();
+            Numbers = gamePreparer.CreateNumbers().Select(value => new Number(value)).ToList();
             CurrentCalculation = new Calculation();
             CalculationList = new List<Calculation>();
-            Numbers = new List<Number>();
             CalculatedNumbers = new List<CalculatedNumber>();
 
             RestartGame();
@@ -34,10 +34,9 @@ namespace Calculator
 
         public void RestartGame()
         {
-            Numbers.Clear();
-            foreach (var value in gamePreparer.CreateNumbers())
+            foreach (var number in Numbers)
             {
-                Numbers.Add(new Number(value));
+                number.Enable();
             }
             CalculatedNumbers.Clear();
             Message = new Message(Objetive);
