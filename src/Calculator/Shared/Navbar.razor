@@ -1,4 +1,4 @@
-﻿<nav class="navbar navbar-light navbar-expand-sm bg-light navbar-toggleable-sm border-bottom box-shadow mb-3">
+﻿<nav class="navbar navbar-light navbar-expand-sm bg-info navbar-toggleable-sm border-bottom box-shadow mb-3">
     <div class="container">
         <button class="navbar-toggler" @onclick="ToggleNavMenu" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                 aria-expanded="false" aria-label="Toggle navigation">
@@ -7,11 +7,11 @@
         <div class="@NavMenuCssClass navbar-collapse" @onclick="ToggleNavMenu">
             <ul class="navbar-nav flex-grow-1 ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="/">Numbers</a>
+                    <a class="nav-link" href="numbers">Numbers</a>
                 </li>
-                @*<li class="nav-item">
-                    <a class="nav-link" href="concepts">Letters</a>
-                </li>*@
+                <li class="nav-item">
+                    <a class="nav-link" href="letters">Letters</a>
+                </li>
             </ul>
         </div>
     </div>

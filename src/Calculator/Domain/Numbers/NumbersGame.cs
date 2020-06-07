@@ -5,11 +5,8 @@ using System.Linq;
 
 namespace Calculator
 {
-
-    public class Game
+    public class NumbersGame
     {
-        private readonly IGamePreparer gamePreparer;
-
         public Calculation CurrentCalculation { get; set; }
 
         public List<Calculation> CalculationList { get; }
@@ -19,10 +16,8 @@ namespace Calculator
         public List<CalculatedNumber> CalculatedNumbers { get; }
         public Message Message { get; private set; }
 
-        public Game(IGamePreparer gamePreparer)
+        public NumbersGame(INumbersGamePreparer gamePreparer)
         {
-            this.gamePreparer = gamePreparer;
-
             Objetive = gamePreparer.CreateObjetive();
             Numbers = gamePreparer.CreateNumbers().Select(value => new Number(value)).ToList();
             CurrentCalculation = new Calculation();

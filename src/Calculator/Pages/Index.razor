@@ -1,91 +1,41 @@
 ﻿@page "/"
-@inject IGamePreparer gamePreparer;
+@inject NavigationManager navigationManager;
 
+<div class="container">
+    <div class="card-deck">
 
-
-    <div class="container">
-
-        <div class="d-flex align-items-end justify-content-between">
-
-            <ObjetivePanel Objective="game.Objetive"></ObjetivePanel>
-
-            @if (game.IsStarted)
-            {
-                <div class="bg-light d-flex justify-content-start">
-                    <button @onclick="() => game.RestartGame()" class="btn btn-outline-secondary">
-                        <span class="mr-2"><i class="fas fa-redo-alt"></i></span>Begin again
-                    </button>
-                </div>
-            }
-
-            <CurrentCalculation Calculation="game.CurrentCalculation"></CurrentCalculation>
-
-        </div>
-
-        <br />
-
-        <NumbersGrid Numbers="game.Numbers" OnNumberClicked="NumberClicked"></NumbersGrid>
-
-        <br />
-
-        <OperationsGrid OperationSelected="OnOperationClicked"></OperationsGrid>
-
-        <AchievementMessage Message="game.Message"></AchievementMessage>
-
-        <div class="card border-0">
-            <img src="img/background-small.png" class="card-img" alt="...">
-            <div class="card-img-overlay">
-                <br /> 
-                <br />
-                <br />
-                <br />
-                <div class="row mt-5">
-                    <div class="col-6">
-                        <ResultsGrid OnNumberClicked="CalculatedNumberClicked" Numbers="game.CalculatedNumbers"></ResultsGrid>
-                    </div>
-                    <div class="col-6">
-                        <CalculationList List="game.CalculationList"></CalculationList>
-                    </div>
-                </div>
+        <div class="card mt-4">
+            <img src="/img/numbers.jpg" class="card-img-top" alt="numbers">
+            <div class="card-body">
+                <h5 class="card-title">Numbers</h5>
+                <p class="card-text small">
+                    The goal is to arrive at a chosen number (from 101 to 999) using the four basic arithmetic operations (+, -, ×, ÷)
+                    applied to six numbers chosen randomly. You have to combine the numbers arithmetically with the goal of producing the target number.
+                    You may use each of the six numbers originally selected once, and the result of each operation performed with them once.
+                    It's mandatory to use all the numbers. All numbers used must be positive integers.
+                </p>
+                <a href="numbers" class="btn btn-outline-info">Play with numbers</a>
             </div>
         </div>
 
+        <div class="card mt-4">
+            <img src="/img/letters.jpg" class="card-img-top" alt="letters">
+            <div class="card-body">
+                <h5 class="card-title">Letters</h5>
+                <p class="card-text small">
+                    The goal is to find the longest word using 10 available letters. Type the words you find, and they will be saved if they exist in the dictionary
+                </p>
+                <a href="letters" class="btn btn-outline-info">Play with letters</a>
+            </div>
+        </div>
     </div>
+</div>
 
 
 @code
 {
-    private Game game;
-
     protected override void OnInitialized()
     {
-        game = new Game(gamePreparer);
-    }
 
-    private void OnOperationClicked(Operator @operator)
-    {
-        if (!game.CurrentCalculation.IsFilled)
-        {
-            game.CurrentCalculation.SetOperator(@operator);
-            game.Resolve();
-        }
-    }
-
-    private void NumberClicked(Number number)
-    {
-        if (!game.CurrentCalculation.IsFilled)
-        {
-            game.CurrentCalculation.SetNumber(number);
-            game.Resolve();
-        }
-    }
-
-    private void CalculatedNumberClicked(Calculator.CalculatedNumber number)
-    {
-        if (!game.CurrentCalculation.IsFilled)
-        {
-            game.CurrentCalculation.SetNumber(number);
-            game.Resolve();
-        }
     }
 }

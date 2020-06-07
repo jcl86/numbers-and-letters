@@ -1,0 +1,26 @@
+﻿@page "/letters"
+@inject IWordSearcher wordSearcher;
+@inject LettersGamePreparer gamePreparer;
+
+<div class="container">
+
+    <div class="card-deck">
+
+
+        @foreach (var letter in game.Letters)
+        {
+            <LetterPanel Letter="letter"></LetterPanel>
+        }
+    </div>
+
+</div>
+
+@code
+{
+    private LettersGame game;
+
+    protected override void OnInitialized()
+    {
+        game = new LettersGame(gamePreparer);
+    }
+}

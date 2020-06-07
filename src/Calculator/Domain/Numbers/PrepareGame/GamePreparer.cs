@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Calculator
 {
-    public class GamePreparer : IGamePreparer
+    public class GamePreparer : INumbersGamePreparer
     {
         private readonly int[] complexRow = new int[] { 10, 10, 25, 50, 75, 100 };
 

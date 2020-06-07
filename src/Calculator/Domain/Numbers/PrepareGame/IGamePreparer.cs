@@ -2,7 +2,7 @@
 
 namespace Calculator
 {
-    public interface IGamePreparer
+    public interface INumbersGamePreparer
     {
         int CreateObjetive();
         IEnumerable<int> CreateNumbers();
