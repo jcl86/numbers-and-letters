@@ -1,16 +1,13 @@
 ﻿
-    <div class="card">
-        <div class="card-body">
-            <span  class="display-4 text-info">
-                @Letter.ToString().ToUpper()
-            </span>
-        </div>
-    </div>
 
-  
+<span style="width:1em;" class="@text("border border-info m-1")">
+    @Letter.ToString()
+</span>
 
-    @code {
+@code {
 
-        [Parameter]
-        public char Letter { get; set; }
-    }
+    private string text(string classes) => (Letter.IsUsed ? "text-muted" : "text-dark") + " " + classes;
+
+    [Parameter]
+    public Letter Letter { get; set; }
+}

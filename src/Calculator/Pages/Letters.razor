@@ -4,15 +4,17 @@
 
 <div class="container">
 
-    <div class="card-deck">
+    <div class="d-flex flex-wrap justify-content-center display-4 text-center">
 
-
-        @foreach (var letter in game.Letters)
+        @foreach (var letter in game.AvaliableLetters.Letters)
         {
             <LetterPanel Letter="letter"></LetterPanel>
         }
     </div>
 
+    <br />
+
+    <InputWord AvaliableLetters="game.AvaliableLetters"></InputWord>
 </div>
 
 @code

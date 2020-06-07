@@ -1,0 +1,33 @@
+﻿
+    <div class="d-flex justify-content-center">
+        <div class="input-group input-group-lg" style="max-width:40em;">
+            <input type="text" class="form-control" 
+                   value="@TypedWord"
+                   @onchange="TextChanged"
+                   aria-label="Type your word" 
+                   aria-describedby="input-word-state"
+                   placeholder="Type your word">
+            <div class="input-group-append">
+                <span class="input-group-text" id="input-word-state">
+                    <i class="fas fa-times"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+@code {
+
+    [Parameter]
+    public AvaliableLetters AvaliableLetters { get; set; }
+
+    [Parameter]
+    public string TypedWord { get; set; }
+
+    public async Task TextChanged()
+    {
+        AvaliableLetters.FormWord(TypedWord);
+        await OnWordChanged.InvokeAsync(TypedWord);
+    }
+
+    [Parameter]
+    public EventCallback<string> OnWordChanged { get; set; }
+}
