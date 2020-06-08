@@ -1,0 +1,18 @@
+﻿
+<ul class="list-group">
+
+    @foreach (var word in Words)
+    {
+        <li class="list-group-item">
+            <i class="fas fa-feather-alt"></i> <a class="btn btn-link mb-1" href="@word.Url">@word.ToString()</a>  <span class="badge badge-secondary">@word.Length</span>
+        </li>
+
+    }
+</ul>
+
+@code {
+
+    [Parameter]
+    public List<DictionaryWord> Words { get; set; }
+
+}

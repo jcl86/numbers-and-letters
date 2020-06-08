@@ -31,7 +31,7 @@ namespace Calculator
             services.AddSingleton<Random>();
             services.AddSingleton<INumbersGamePreparer, GamePreparer>();
             services.AddSingleton<LettersGamePreparer>();
-            services.AddSingleton<IWordSearcher, WordSearcher>();
+            services.AddSingleton<IWordSearcher, Infraestructure.DraeWordSearcher>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

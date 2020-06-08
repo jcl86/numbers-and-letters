@@ -73,3 +73,5 @@ F:\DESARROLLO\Repos\calculator\src\Calculator\obj\Debug\netcoreapp3.1\Calculator
 F:\DESARROLLO\Repos\calculator\src\Calculator\obj\Debug\netcoreapp3.1\Calculator.csproj.CopyComplete
 F:\DESARROLLO\Repos\calculator\src\Calculator\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\LetterPages\InputWord.razor.g.cs
 F:\DESARROLLO\Repos\calculator\src\Calculator\obj\Debug\netcoreapp3.1\Razor\Pages\LetterPages\InputWord.razor.g.cs
+F:\DESARROLLO\Repos\calculator\src\Calculator\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\LetterPages\WordList.razor.g.cs
+F:\DESARROLLO\Repos\calculator\src\Calculator\obj\Debug\netcoreapp3.1\Razor\Pages\LetterPages\WordList.razor.g.cs

@@ -14,7 +14,9 @@
 
     <br />
 
-    <InputWord AvaliableLetters="game.AvaliableLetters"></InputWord>
+    <InputWord AvaliableLetters="game.AvaliableLetters" OnWordFound="WordFound"></InputWord>
+
+    <WordList Words="game.WordList"></WordList>
 </div>
 
 @code
@@ -24,5 +26,10 @@
     protected override void OnInitialized()
     {
         game = new LettersGame(gamePreparer);
+    }
+
+    private void WordFound(DictionaryWord typedWord)
+    {
+        game.AddWord(typedWord);
     }
 }

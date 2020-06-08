@@ -1,33 +1,59 @@
-﻿
-    <div class="d-flex justify-content-center">
-        <div class="input-group input-group-lg" style="max-width:40em;">
-            <input type="text" class="form-control" 
-                   value="@TypedWord"
-                   @onchange="TextChanged"
-                   aria-label="Type your word" 
-                   aria-describedby="input-word-state"
-                   placeholder="Type your word">
-            <div class="input-group-append">
-                <span class="input-group-text" id="input-word-state">
-                    <i class="fas fa-times"></i>
-                </span>
-            </div>
+﻿@inject IWordSearcher wordSearcher
+
+<div class="d-flex justify-content-center">
+    <div class="input-group input-group-lg" style="max-width:40em;">
+        <input type="text" class="form-control"
+               @onchange="OnTextChanged"
+               aria-label="Type your word"
+               aria-describedby="input-word-state"
+               placeholder="Type your word">
+
+        <div class="input-group-append">
+            <span class="input-group-text" id="input-word-state">
+                <i class="|icon"></i>
+            </span>
         </div>
     </div>
+</div>
+<span class="text-danger">@error</span>
 @code {
+
+    private string error;
+
+    private string typedWord;
+
+    private const string successIcon = "fas fa-check";
+    private const string failIcon = "fas fa-times";
+    private const string loadingIcon = "fas fa-loading";
+
+    private string icon;
 
     [Parameter]
     public AvaliableLetters AvaliableLetters { get; set; }
 
-    [Parameter]
-    public string TypedWord { get; set; }
-
-    public async Task TextChanged()
+    private async Task OnTextChanged(ChangeEventArgs args)
     {
-        AvaliableLetters.FormWord(TypedWord);
-        await OnWordChanged.InvokeAsync(TypedWord);
+        error = "";
+        icon = loadingIcon;
+        typedWord = args.Value.ToString();
+
+        bool wordMatches = AvaliableLetters.FormWord(typedWord);
+
+        if (wordMatches)
+        {
+            var word = await wordSearcher.Search(typedWord);
+            if (word != null)
+            {
+                icon = successIcon;
+                await OnWordFound.InvokeAsync(word);
+                return;
+            }
+            else error = "Word was not found in the dictionary";
+        }
+        else error = "Word can not be formed";
+        icon = failIcon;
     }
 
     [Parameter]
-    public EventCallback<string> OnWordChanged { get; set; }
+    public EventCallback<DictionaryWord> OnWordFound { get; set; }
 }
