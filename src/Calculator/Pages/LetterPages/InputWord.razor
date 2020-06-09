@@ -10,12 +10,14 @@
 
         <div class="input-group-append">
             <span class="input-group-text" id="input-word-state">
-                <i class="|icon"></i>
+                <i class="@icon"></i>
             </span>
         </div>
     </div>
 </div>
-<span class="text-danger">@error</span>
+<div class="d-flex justify-content-center">
+    <span class="text-danger">@error</span>
+</div>
 @code {
 
     private string error;
@@ -24,7 +26,7 @@
 
     private const string successIcon = "fas fa-check";
     private const string failIcon = "fas fa-times";
-    private const string loadingIcon = "fas fa-loading";
+    private const string loadingIcon = "fas fa-spinner";
 
     private string icon;
 
@@ -33,11 +35,23 @@
 
     private async Task OnTextChanged(ChangeEventArgs args)
     {
+        if (args.Value.ToString().Equals(typedWord ?? ""))
+        {
+            return;
+        }
+
+        if (string.IsNullOrWhiteSpace(args.Value.ToString()))
+        {
+            error = "";
+            return;
+        }
+
         error = "";
         icon = loadingIcon;
         typedWord = args.Value.ToString();
 
         bool wordMatches = AvaliableLetters.FormWord(typedWord);
+        await OnInputChanged.InvokeAsync(typedWord);
 
         if (wordMatches)
         {
@@ -48,12 +62,15 @@
                 await OnWordFound.InvokeAsync(word);
                 return;
             }
-            else error = "Word was not found in the dictionary";
+            else error = $"{typedWord} was not found in the dictionary";
         }
-        else error = "Word can not be formed";
+        else error = $"{typedWord} can not be formed with current letters";
         icon = failIcon;
     }
 
     [Parameter]
     public EventCallback<DictionaryWord> OnWordFound { get; set; }
+
+    [Parameter]
+    public EventCallback<string> OnInputChanged { get; set; }
 }

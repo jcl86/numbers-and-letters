@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Linq;
 
 namespace Calculator
 {
@@ -16,13 +17,27 @@ namespace Calculator
                 throw new ArgumentNullException(nameof(word));
             }
 
+            if (word.Length < 1)
+            {
+                throw new ArgumentException("Can not form a word with no letters");
+            }
+
             this.word = word.Trim();
             Url = url;
         }
 
         public int Length => word.Length;
 
-        public override string ToString() => word.ToString();
+        public int Stars()
+        {
+            if (Length > 8) return 5;
+            if (Length > 6) return 4;
+            if (Length > 4) return 3;
+            if (Length > 2) return 2;
+            return 1;
+        }
+
+        public override string ToString() => word.First().ToString().ToUpper() + word.Substring(1);
 
         public override bool Equals(object obj)
         {

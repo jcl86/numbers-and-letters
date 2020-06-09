@@ -29,7 +29,7 @@ namespace Calculator.Infraestructure
                     return null;
                 }
 
-                return new DictionaryWord(word, $"{baseurl}word");
+                return new DictionaryWord(word, $"{baseurl}{word}");
             }
         }
     }

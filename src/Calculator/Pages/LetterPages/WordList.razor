@@ -1,14 +1,15 @@
 ﻿
-<ul class="list-group">
+    <div class="row mt-3">
+        <div class="col-lg-8 mx-auto">
+            <ul class="list-group shadow">
+                @foreach (var word in Words)
+                {
+                    <WordPanel Word="word"></WordPanel>
+                }
 
-    @foreach (var word in Words)
-    {
-        <li class="list-group-item">
-            <i class="fas fa-feather-alt"></i> <a class="btn btn-link mb-1" href="@word.Url">@word.ToString()</a>  <span class="badge badge-secondary">@word.Length</span>
-        </li>
-
-    }
-</ul>
+            </ul>
+        </div>
+    </div>
 
 @code {
 

@@ -9,7 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{2270EE49-429
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{0D8FAF80-8761-4F70-85E6-23FBCEFEB990}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calculator.UnitTests", "test\Calculator.UnitTests\Calculator.UnitTests.csproj", "{94881495-C8A6-4CCC-9233-1829E37CCF3F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Calculator.UnitTests", "test\Calculator.UnitTests\Calculator.UnitTests.csproj", "{94881495-C8A6-4CCC-9233-1829E37CCF3F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

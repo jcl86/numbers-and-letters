@@ -14,7 +14,7 @@
 
     <br />
 
-    <InputWord AvaliableLetters="game.AvaliableLetters" OnWordFound="WordFound"></InputWord>
+    <InputWord AvaliableLetters="game.AvaliableLetters" OnWordFound="WordFound" OnInputChanged="InputChanged"></InputWord>
 
     <WordList Words="game.WordList"></WordList>
 </div>
@@ -31,5 +31,10 @@
     private void WordFound(DictionaryWord typedWord)
     {
         game.AddWord(typedWord);
+    }
+
+    private void InputChanged(string word)
+    {
+        this.StateHasChanged();
     }
 }
